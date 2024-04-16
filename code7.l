@@ -2,9 +2,11 @@
 #include<stdio.h>
 %}
 
-%%
-\/\/(.*) {};					
-\/\*(.*\n)*.*\*\/  {};			
+%%					
+\/\/(.*) {};
+\/\*(.|\n)*\*\/ {};
+
+.|\n   {printf("%c",yytext[0]);}			
 %%
 
 int yywrap()
@@ -13,12 +15,10 @@ return 1;
 }
 int main()
 {
-    FILE *input_file = fopen("input.c", "r");
-    FILE *output_file = fopen("output.c", "w");
-    yyin = input_file;
-    yyout = output_file;
+    //Takig inputfrom the input.txt
+    yyin = fopen("input.txt","r");
+    //Showing the output in terminal
+    printf("Output:\n");
     yylex();
-    fclose(input_file);
-    fclose(output_file);
     return 0;
 }

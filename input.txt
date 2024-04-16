@@ -1,0 +1,13 @@
+//Sample c code
+#include<stdio.h>
+int main()
+{
+printf("Hello World");
+/*
+this is multiline comment
+*/ int a;
+return 0;
+
+} 
+
+
