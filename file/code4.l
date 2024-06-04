@@ -6,7 +6,7 @@ int keyword=0, operator=0, separator=0, identifiers=0;
 %% 
 float|char|double|long|short|unsigned|signed|for|do|while|void|int|bool|switch|case|return|if|else|sizeof|struct|goto|const|break {printf("keyword"); keyword++;}
 
-[/|*|+|-]+ { printf("Operator "); operator++;} 
+[/\*\+\-]+ { printf("Operator "); operator++;} 
 [{}(),;.]+ { printf("Separator "); separator++;} 
 [a-zA-Z_][a-zA-Z0-9_]* { printf("Identifier "); identifiers++; } 
 .|\n; 
